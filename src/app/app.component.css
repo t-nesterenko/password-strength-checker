@@ -1,12 +1,14 @@
 .title-container {
     text-align: center;
-  }
+}
   
-  .password-container {
+.password-container {
     margin: 20px;
-  }
+    text-align: center;
+}
   
-  .input-heading {
-    margin-bottom: 10px;
-  }
-  
+.input-heading {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  text-align: center;
+}
