@@ -10,16 +10,20 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, ReactiveFormsModule]
 })
 export class PasswordStrengthInputComponent {
-  passwordControl = new FormControl('');
-  passwordStrength: string = 'empty'; // Default to 'empty'
+  public passwordControl = new FormControl('');
+  private _passwordStrength: string = 'Empty';
+
+  get passwordStrength(): string {
+    return this._passwordStrength;
+  }
 
   constructor() {
     this.passwordControl.valueChanges.subscribe(value => {
-      this.passwordStrength = this.calculateStrength(value ?? '');
+      this._passwordStrength = this.calculateStrength(value ?? '');
     });
   }
 
-  calculateStrength(password: string): string {
+  private calculateStrength(password: string): string {
     if (!password) return 'empty';
     if (password.length < 8) return 'weak';
 
